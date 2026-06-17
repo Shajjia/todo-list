@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif;
+            box-sizing: border-box;
+        }
+
+        .full {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #425c4f, #73d9f3);
+            padding: 10px;
+        }
+
+        .todo-app {
+            width: 100%;
+            max-width: 540px;
+            background: #ffffff;
+            margin: 100px auto 20px;
+            padding: 40px 30px 70px;
+            border-radius: 10px;
+        }
+
+        .todo-app h2 {
+            color: #425c4f;
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .todo-app h2 img {
+            width: 40px;
+            margin-left: 10px;
+
+        }
+        .row{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #d2d4d4;
+            border-radius: 30px;
+            padding-left: 20px;
+            margin-bottom: 25px;
+        }
+        input{
+            flex: 1;
+            border: none;
+            outline: none;
+            background: transparent;
+            padding: 10px;
+        }
+        button{
+            border: none;
+            outline: none;
+            padding: 16px 50px;
+            background: #425c4f;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 40px;
+        }
+        ul li span.task-text {
+    position: static;
+    width: auto;
+    height: auto;
+    font-size: 17px;
+    color: #000;
+    line-height: normal;
+    text-align: left;
+    border-radius: 0;
+}
+
+.edit-btn {
+    padding: 3px 8px;
+    font-size: 11px;
+    border-radius: 6px;
+    background: #425c4f;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 45px;
+    top: 12px;
+}
+
+.edit-input {
+    border: 1px solid #425c4f;
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 15px;
+    outline: none;
+    width: 60%;
+}
+        ul li{
+            list-style: none;
+            font-size: 17px;
+            padding: 12px 8px 12px 50px ;
+            user-select: none;
+            cursor: pointer;
+            position: relative;
+        }
+        ul li::before{
+            content: '';
+            position: absolute;
+            height: 28px;
+            width: 28px;
+            border-radius: 50%;
+            background-image: url(unchecked.png);
+            background-size: cover;
+            background-position: center;
+            top: 12px;
+            left: 8px;
+
+        }
+        ul li.checked{
+            color: #555;
+            text-decoration: line-through;
+        }
+        ul li.checked::before{
+            background-image: url(checked.jfif);
+        }
+        ul li span{
+            position: absolute;
+            right: 0;
+            top: 5px;
+            width: 40px;
+            height: 40px;
+            font-size: 22px;
+            color:#425c4f;
+            line-height: 40px;
+            text-align: center;
+            border-radius: 50%;
+        }
+ul li span:hover{
+    background: #edeef0;
+
+}
+    </style>
+</head>
+
+<body>
+    <div class="full">
+        <div class="todo-app">
+            <h2>To-Do List <img src="icon.png"></h2>
+            <div class="row">
+<input type="text" id="input" placeholder="Add your task here">
+
+<button onclick="addTask()">Add</button>
+            </div>
+            <p id="error-msg" style="display:none; color:red; font-size:13px; margin-top:4px;">
+</p>
+            <ul id="list">
+               <!--  <li class="checked">task 1</li>
+                 <li>task 2</li>
+                 <li>task 3</li>-->
+            </ul>
+            <button onclick="clearAll()">Clear All</button>
+        </div>
+        
+    </div>
+<script src="script.js"></script>
+</body>
+
+</html>
